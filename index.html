@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Luiz Gustavo</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-left">
+                <span class="navbar-brand"><a href="./index.html">TELA INICIAL PORTIFÓLIO</a></span>
+                
+            </div>
+            <div class="navbar-right">
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showContent('AutomaçãoIndustrial')">Automação Industrial</a></li>
+                    <li><a href="#" onclick="showContent('DesenvolvimentoWeb')">Desenvolvimento Web</a></li>
+                    <li><a href="#" onclick="showContent('BancodeDados')">Banco de Dados</a></li>
+                    <li><a href="#" onclick="showContent('LinguagemdeProgramacao')">Linguagem de Programação</a></li>
+                    <li><a href="#" onclick="showContent('CienciadeDados')">Ciência de Dados</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="container-1" class="container-1">
+            <h1 class="texto-padrao">Seja bem vindo ao meu Portfólio </h1>
+        </section>
+
+        <section id="container-2" class="container-2">
+            <h3 class="texto-padrao">
+            <H1>Luiz Gustavo Bastos de Almeida</H1>
+            <h1>Projeto 1° Semestre ADS</h1>
+            <h3>Formado em Técnico Mecatrônico no ano de 2023 atualmente atuando 
+                de estágiario como analista de sistemas </h3>     
+            <a href="https://github.com/luizgustavo200555" target="_blank"><h3>Confira meu GitHub</h3></a>
+            </h3>
+            <img src="logo-senai1.png" style="width: 400px; height: 250px;"> 
+        </section>
+    </main>
+
+
+     
+     <div id="AutomaçãoIndustrial-title" style="display: none;">Automação Industrial</div>
+<div id="AutomaçãoIndustrial-description" style="display: none;">
+    <h1>O QUE É?</h1>
+    <P>É o uso de tecnologia para controlar e monitorar processos de produção e manufatura em ambientes industriais. Envolve a aplicação de sistemas computadorizados, dispositivos eletrônicos e software para automatizar tarefas que anteriormente eram realizadas manualmente ou por meio de controle humano direto.</P>
+    <h2>Componentes mais usados</h2>
+    <h3><li>Arduino</li></h3>
+    <p>Arduino é uma plataforma de prototipagem eletrônica de código aberto, composta por hardware e software, projetada para facilitar o desenvolvimento de projetos eletrônicos interativos. A plataforma Arduino consiste em uma placa de circuito impresso com um microcontrolador e uma série de pinos de entrada/saída que podem ser programados para executar diversas funções</p>
+    <img src="Arduino_Uno_(Versión_Informática).png" style="width: 350px; height: 200px;">
+    <h3><li>ESP-32</li></h3>
+    <p>O ESP32 é um microcontrolador de baixo custo e baixo consumo de energia desenvolvido pela empresa chinesa Espressif Systems. Ele é amplamente utilizado em projetos de IoT (Internet das Coisas), automação residencial, dispositivos portáteis e uma variedade de outras aplicações.</p>
+    <img src="142687940.webp" style="width: 350px; height: 200px;">
+    <h2>Plataformas usadas para simulação dos Componentes:</h2>
+    <h3><li>Tinker Cad</li></h3>
+    <p>Tinkercad é uma plataforma online de design 3D e eletrônica, desenvolvida pela Autodesk. Ele oferece ferramentas simples e intuitivas para criar modelos 3D, circuitos eletrônicos e simulações sem a necessidade de instalar nenhum software adicional.</p>
+    <h4>Suas Principais Características</h4>
+    <p>Modelagem 3D/ Circuitos Eletrônicos/ Simulações/ Compartilhamento e Colaboração;</p>
+    <img src="Logo-tinkercad-wordmark.svg.png" style="width: 350px; height: 100px;">
+    <h3><li>WOKWI</li></h3>
+    <p>Wokwi é uma plataforma online que oferece simuladores de hardware para desenvolvimento e prototipagem de sistemas embarcados e eletrônicos. Ele fornece uma maneira fácil e acessível de simular o funcionamento de microcontroladores e componentes eletrônicos em um ambiente virtual.</p>
+    <h4>Seus Principais Recursos</h4>
+    <p>Simuladores de microcontroladores/ Bibliotecas de componentes/ Facilidade de uso/ Compartilhamento e colaboração;</p>
+    <img src="Wokwi-logo.png" style="width: 300px; height: 100px;">
+    <h2>Exemplo dos componentes utilizados em Sala:</h2>
+    <h3>Semafáro realizado no tinker cad</h3>
+    <textarea name="" id="" cols="30" rows="10">
+        //Criar nossas variáveis
+
+//O valor de cada cor, representa o pino físico onde ele está ligado.
+int vermelho = 3;
+int amarelo = 4;
+int verde = 5;
+int botao = 2;
+
+int tempo_setup = 1000;
+int tempo_verm = 5000;
+int tempo_amarelo = 3000;
+int tempo_verde = 5000;
+
+void setup(){
+	//Configuração de cada pino, sendo eles saídas.
+	pinMode(vermelho, OUTPUT);
+  pinMode(amarelo, OUTPUT);
+  pinMode(verde, OUTPUT);
+  pinMode(botao, INPUT);
+  
+  
+  digitalWrite(amarelo, 1);
+  delay(tempo_setup);
+  digitalWrite(amarelo, 0);
+  delay(tempo_setup);
+  
+  digitalWrite(amarelo, 1);
+  delay(tempo_setup);
+  digitalWrite(amarelo, 0);
+  delay(tempo_setup);
+  
+  digitalWrite(amarelo, 1);
+  delay(tempo_setup);
+  digitalWrite(amarelo, 0);
+  delay(tempo_setup);
+  
+}
+
+void loop(){
+	//Liga vermelho por 5s e depois desliga.
+	digitalWrite(vermelho, 1);
+  delay(tempo_verm);
+  digitalWrite(vermelho,0);
+  
+  //Liga verde por 5s e depois desliga.
+  digitalWrite(verde, 1);
+  delay(tempo_verde);
+  digitalWrite(verde,0);
+  
+  //Liga amarelo por 3s e depois desliga.
+  digitalWrite(amarelo, 1);
+  delay(tempo_amarelo);
+  digitalWrite(amarelo, 0);
+  }
+    </textarea>
+    <a href="https://www.tinkercad.com/things/kb9b8XkQ2cs-copy-of-semaforo/editel" target="_blank">
+        <img src="Captura de tela 2024-06-13 162801.png" style="width: 350px; height: 200px;">
+    </a>
+    <p><h3>Clique na imagem acima</h3></p>
+</div>
+    
+ 
+
+    <div id="DesenvolvimentoWeb-title" style="display: none;">Desenvolvimento Web</div>
+    <div id="DesenvolvimentoWeb-description" style="display: none;">
+        <H1>O QUE É?</H1>
+        <p>É o processo de criação e manutenção de websites e aplicações web. Envolve diversas disciplinas e tecnologias para construir a estrutura, design e funcionalidade de sites que são acessados através da internet.</p>
+        <h1>FRONT-END</h1>
+        <h4>HTML(HyperText Markup Language)</h4>
+        <p>É a linguagem de marcação padrão usada para criar e estruturar páginas na web. Aqui está um resumo dos conceitos essenciais de HTML:</p>
+        <H4>Estrutura Básica</H4>
+        <p>Uma página HTML é composta por elementos que são definidos por tags. Cada elemento tem uma tag de abertura e uma tag de fechamento, com o conteúdo entre elas.</p>
+     <img src="Captura de tela 2024-05-29 162032.png" style="width: 350px; height: 200px;">
+     <h4>Elementos Comuns</h4>
+        <textarea name="" id="" cols="30" rows="10">
+<!DOCTYPE html>: Declaração que define o tipo de documento como HTML5.
+<html>: Tag raiz que engloba todo o conteúdo de uma página HTML.
+<head>: Contém metadados, como título da página, links para CSS, e scripts.
+<title>: Define o título da página exibido na aba do navegador.
+<body>: Contém todo o conteúdo visível da página
+        </textarea>    
+    </h4><li>CSS (Cascading Style Sheets)</li><p> A linguagem de marcação usada para estruturar o conteúdo na web.</p></h4>
+     <img src="Captura de tela 2024-06-03 144120.png" style="width: 350px; height: 200px;">
+     
+        <h4><li>JavaScript</li></h4><p>A linguagem de programação que adiciona interatividade e funcionalidades dinâmicas aos websites</p>
+        
+        <h1>Backend (Desenvolvimento do Lado do Servidor):</h1>
+        <h4><li>Linguagens de Programação</li></h4><p>Linguagens como Python, Java, Ruby, PHP e JavaScript (usando Node.js) são usadas para construir a lógica do servidor.</p>
+        <h4><li>Bancos de Dados:</p></h4><p>Sistemas como MySQL, PostgreSQL, MongoDB e SQLite que armazenam e gerenciam dados.</p>
+        <h4><li>Servidores e Infraestrutura:</li></h4><p>Servidores web como Apache e Nginx que hospedam websites e aplicativos. Serviços em nuvem como AWS, Google Cloud e Azure são frequentemente utilizados para escalar e gerenciar a infraestrutura.</p>
+        <h1>Visual Studio Code (VS Code)</h1>
+        <p>Um editor de código leve e altamente personalizável, desenvolvido pela Microsoft. Ele possui suporte integrado para várias linguagens de programação, extensões e integração com controle de versão.</p>
+        <img src="visual-studio-code-icon.webp" style= "width: 300px; height: 200px;">
+        <h1>Exemplo de lições trabalhadas em Sala de Aula:</h1>
+        <textarea name="" id=""cols="70" rows="20">
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            
+            h1 {
+                text-align: center;
+            }
+            
+            form {
+                margin-bottom: 20px;
+            }
+            
+            form label {
+                display: block;
+                margin-bottom: 5px;
+            }
+            
+            form input[type="text"],
+            form input[type="email"],
+            form input[type="tel"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+            
+            form button {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+            }
+            
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            
+            table th, table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            
+            table th {
+                background-color: #f2f2f2;
+            }
+            
+            #editPopup {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #fff;
+                padding: 20px;
+                border: 1px solid #ddd;
+                z-index: 9999;
+            }
+            
+            #editPopup h2 {
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
+            
+            #editPopup input[type="text"],
+            #editPopup input[type="email"],
+            #editPopup input[type="tel"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+            
+            #editPopup button {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+            
+            #editPopup button:last-child {
+                margin-right: 0;
+                background-color: #dc3545;
+            }
+            
+        </textarea>
+        
+        <iframe src="./atividade avaliativa andre/index.html" width="70%" height="400"></iframe>
+    </div>
+
+
+    
+    
+    
+    
+    
+    
+    
+    <div id="BancodeDados-title" style="display: none;">Banco de Dados</div>
+    <div id="BancodeDados-description" style="display: none;">
+        <h1>O QUE É?</h1>
+        <p>Um banco de dados é um sistema organizado para coletar, armazenar e gerenciar dados de forma eficiente. Ele serve como uma infraestrutura fundamental para muitas aplicações de software, permitindo a recuperação rápida e precisa de informações. Existem diferentes tipos de bancos de dados, como bancos de dados relacionais e bancos de dados NoSQL.</p>
+        <h1>Banco de Dados Relacionais</h1>
+        <p>Um tipo de banco de dados que organiza os dados em tabelas relacionadas entre si. Cada tabela é composta por linhas (também conhecidas como registros) e colunas (também conhecidas como campos). As relações entre as tabelas são estabelecidas através de chaves estrangeiras, que são colunas que fazem referência a chaves primárias em outras tabelas.</p>
+        <H4><li>PostgreSQL</li></H4>
+        <p>Sistema de gerenciamento de banco de dados relacional de código aberto, altamente escalável e com uma forte reputação de confiabilidade e robustez.</p>
+        <img src="Captura de tela 2024-06-05 161211.png" style="width: 350px; height: 200px;" >
+        <h1>Banco de Dados NoSQL</h1>
+        <p>Um banco de dados NoSQL (Not Only SQL) é um tipo de banco de dados que difere dos bancos de dados relacionais tradicionais em seu modelo de armazenamento e manipulação de dados.</p>
+        <h2>Tipos de Banco de Dados NoSQL</h2>
+        <h4><li>Chave/Valor;</li></h4>
+        <p>Bancos de dados baseados em chave/valor permitem que as aplicações guardem seus dados sem um formato especifico, sendo armazenados como duplas de chaves e seus respectivos valores.</p>
+        <h4><li>Documentos;</li></h4>
+        <p>Este modelo armazena coleções e documentos. Um documento é um objeto com identificador único e um conjunto de campos que podem ser strings , listas ou documentos aninhados e o valor deste.</p>
+        <h4><li>Família de colunas (Colunar ou orientado a colunas);</li></h4>
+        <p>Os Bancos de dados baseados em colunas guardam seus dados divididos por colunas,permitindo que sejam facilmente acessadas as colunas de múltiplos registros assim diminuindo o acesso ao disco e o tempo de processamento.</p>
+        <h4><li>Grafos;</li></h4>
+        <p>São otimizados para armazenar e consultar dados que estão estruturados como grafos. Um grafo é uma estrutura de dados que consiste em nós (também chamados de vértices) que estão conectados por arestas (também chamadas de relacionamentos).</p>
+        <h4>Atlas MongoDB</h4>
+        <p>É um banco de dados de código aberto, gratuito, de alta performance, sem esquema (schema free) e orientado a documentos lançado em fevereiro de 2009 pela empresa 10gen.</p>
+        <img src="Captura de tela 2024-06-05 163833.png" style="width: 350px; height: 250px;">
+        <h1>Exemplos de lições trabalhadas em Sala de Aula:</h1>
+        <textarea name="" id=""  cols="70" rows="20">
+            -- COMANDOS DDL
+CREATE TABLE alunos (
+	cpf bigint PRIMARY KEY,
+	nome_aluno varchar(80),
+	idade int,
+	rua varchar(80),
+	numero int,
+	bairro varchar(50),
+	cidade varchar(40),
+	estado varchar(40),
+	cep int,
+	país varchar(30)
+);
+drop table alunos
+
+CREATE TABLE telefones (
+	cpf bigint,
+	CONSTRAINT fk_cpf_telefones FOREIGN KEY (cpf) REFERENCES alunos (cpf),
+	ddd int,
+	numero varchar(15)
+);
+drop table telefones
+
+CREATE TABLE emails (
+	cpf bigint,
+	CONSTRAINT fk_cpf_emails FOREIGN KEY (cpf) REFERENCES alunos (cpf),
+	email varchar(20),
+	dominio varchar(15)
+);
+drop table emails
+
+CREATE TABLE departamentos (
+	id_depto SERIAL PRIMARY KEY,
+	sigla_depto varchar(5),
+	nome_depto varchar(20)
+);
+
+CREATE TABLE cursos (
+	id_curso SERIAL PRIMARY KEY,
+	id_depto int,
+	CONSTRAINT fk_id_depto_cursos FOREIGN KEY (id_depto) REFERENCES departamentos (id_depto),
+	nome_curso varchar(30)
+);
+drop table cursos
+
+CREATE TABLE matricula (
+	ra int PRIMARY KEY,
+	cpf bigint,
+	CONSTRAINT fk_cpf_matriculas FOREIGN KEY (cpf) REFERENCES alunos (cpf),
+	status varchar(20),
+	id_curso int,
+	CONSTRAINT fk_id_curso_matriculas FOREIGN KEY (id_curso) REFERENCES cursos (id_curso)
+);
+drop table matricula
+
+CREATE TABLE disciplinas (
+	id_disciplina SERIAL PRIMARY KEY,
+	nome_disciplina varchar(30),
+	optativa boolean
+);
+drop table disciplinas
+
+CREATE TABLE cursos_disciplinas(
+	id_curso int,
+	CONSTRAINT fk_id_curso_curso_disciplina FOREIGN KEY (id_curso) REFERENCES cursos (id_curso),
+	id_disciplina int,
+	CONSTRAINT fk_id_disciplina_curso_disciplina FOREIGN KEY (id_disciplina) REFERENCES disciplinas (id_disciplina)
+);
+drop table cursos_disciplinas
+
+CREATE TABLE matriculas_disciplinas (
+	id_disciplina int,
+	CONSTRAINT fk_id_disciplina_matricula_disciplina FOREIGN KEY (id_disciplina) REFERENCES disciplinas (id_disciplina),
+	ra int,
+	CONSTRAINT fk_ra_matricula_disciplina FOREIGN KEY (ra) REFERENCES matricula (ra)
+);
+drop table matriculas_disciplinas
+
+--COMANDOS DML
+
+-- Inserindo dados na tabela de alunos
+INSERT INTO alunos (cpf, nome_aluno, idade, rua, numero, bairro, cidade, estado, cep, país) VALUES
+(11122233344, 'João Silva', 25, 'Rua das Flores', 100, 'Centro', 'São Paulo', 'SP', 12345678, 'Brasil'),
+(22233344455, 'Maria Souza', 30, 'Avenida dos Sonhos', 200, 'Vila Esperança', 'Rio de Janeiro', 'RJ', 87654321, 'Brasil'),
+(33344455566, 'Pedro Santos', 28, 'Rua das Palmeiras', 50, 'Jardim América', 'Belo Horizonte', 'MG', 54321678, 'Brasil'),
+(44455566677, 'Ana Oliveira', 22, 'Avenida das Águias', 300, 'Liberdade', 'Salvador', 'BA', 98765432, 'Brasil'),
+(55566677788, 'Carlos Pereira', 35, 'Rua dos Girassóis', 150, 'Centro', 'Brasília', 'DF', 13579246, 'Brasil')
+
+-- Inserindo dados na tabela de telefones
+INSERT INTO telefones (cpf, ddd, numero) VALUES
+(11122233344, 11, '123456789'),
+(22233344455, 21, '987654321'),
+(33344455566, 31, '456789012'),
+(44455566677, 41, '654321987'),
+(55566677788, 51, '789012345');
+
+-- Inserindo dados na tabela de emails
+INSERT INTO emails (cpf, email, dominio) VALUES
+(11122233344, 'joao.silva', 'email.com'),
+(22233344455, 'maria.souza', 'email.com'),
+(33344455566, 'pedro.santos', 'email.com'),
+(44455566677, 'ana.oliveira', 'email.com'),
+(55566677788, 'carlos.pereira', 'email.com');
+
+-- Inserindo dados na tabela de departamentos
+INSERT INTO departamentos (id_dpto, sigla_dpto, nome_dpto) VALUES
+(1, 'SAU', 'Saúde'),
+(2, 'TEC', 'Tecnologia'),
+(3, 'ENG', 'Engenharia'),
+(4, 'HUM', 'Humanas');
+
+-- Inserindo dados na tabela de cursos
+INSERT INTO cursos (id_dpto, nome_curso) VALUES
+(1, 'Medicina'),
+(1, 'Enfermagem'),
+(2, 'Ads'),
+(2, 'Fisio'),
+(3, 'Pedagogia'),
+(3, 'Direito'),
+(4, 'Letras'),
+(4, 'História');
+
+-- Inserindo dados na tabela de matrículas
+INSERT INTO matricula (ra, cpf, status, id_curso) VALUES
+(101, 11122233344, 'Ativa', 1),
+(102, 22233344455, 'Ativa', 2),
+(103, 33344455566, 'Ativa', 3),
+(104, 44455566677, 'Trancada', 4),
+(105, 55566677788, 'Ativa', 5),
+(106, 11122233344, 'Ativa', 6),
+(107, 22233344455, 'Ativa', 7),
+(108, 33344455566, 'Trancada', 8);
+
+-- Inserindo dados na tabela de disciplinas
+INSERT INTO disciplinas (nome_disciplina, optativa) VALUES
+('Cálculo I', false),
+('Literatura Brasileira I', false),
+('Idade Antiga', false),
+('Geopolítica', false),
+('Genética', false),
+('Inglês Instrumental', false),
+('Educação Física Infantil', false),
+('Pintura', false),
+('Mecânica Quântica', false),
+('Química Inorgânica', false),
+('Ecossistemas', false),
+('Ética', false),
+('Sociologia Geral', false),
+('Introdução à Programação', true),
+('Conversação em Espanhol', true);
+
+
+-- COMANDOS DQL
+
+-- Dado o RA ou o Nome do Aluno, buscar no BD todos os demais dados do aluno.
+SELECT * FROM alunos WHERE nome_aluno = 'Fábio Santos'
+
+-- Dado o nome de um departamento, exibir o nome de todos os cursos associados a ele.
+SELECT * FROM cursos WHERE id_dpto = '3'
+
+--Dado o nome de uma disciplina, exibir a qual ou quais cursos ela pertence.
+SELECT * FROM cursos_disciplinas INNER JOIN disciplinas ON nome_disciplina= 'Ética'
+
+-- Dado o CPF de um aluno, exibir quais disciplinas ele está cursando.
+SELECT cpf, id_disciplina, nome_disciplina FROM alunos INNER JOIN disciplinas ON cpf = '22233344455'
+
+-- Filtrar todos os alunos matriculados em um determinado curso
+SELECT nome_aluno, cpf, nome_curso FROM alunos INNER JOIN cursos ON nome_curso = 'Medicina'
+
+-- Filtrar todos os alunos matriculados em determinada disciplina
+SELECT nome_aluno, cpf, nome_disciplina, id_disciplina FROM alunos INNER JOIN disciplinas ON nome_disciplina = 'Geopolítica'
+
+-- Filtrar alunos formados.
+SELECT * FROM matriculas
+SELECT nome_aluno FROM alunos INNER JOIN matriculas ON status = 'Formado'
+
+-- Filtrar alunos ativos
+SELECT nome_aluno FROM alunos INNER JOIN matriculas ON status = 'Ativa'
+
+-- Apresentar a quantidade de alunos ativos por curso.
+SELECT c.nome_curso,
+       (SELECT COUNT(*)
+        FROM matriculas m
+        WHERE m.id_curso = c.id_curso
+          AND m.status = 'Ativa') AS quantidade_alunos_ativos
+FROM cursos c;
+
+-- Apresentar a quantidade de alunos ativos por disciplina.
+
+SELECT d.nome_disciplina,
+       (SELECT COUNT(*)
+        FROM matricula_disciplina md
+        JOIN matriculas m ON md.ra = m.ra
+        WHERE md.id_disciplina = d.id_disciplina
+          AND m.status = 'Ativa') AS quantidade_alunos_ativos
+FROM disciplinas d;
+        </textarea>
+    </div>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="LinguagemdeProgramacao-title" style="display: none;">Linguagem de Programação</div>
+    <div id="LinguagemdeProgramacao-description" style="display: none;">
+    <h1>O que é?</h1>
+    <p>Linguagem de programação é uma linguagem formal projetada para expressar processos que podem ser realizados por máquinas, como computadores, de forma precisa. Essas linguagens permitem que os programadores escrevam instruções que serão interpretadas ou compiladas para criar software ou executar tarefas específicas.
+
+        Existem muitas linguagens de programação diferentes, cada uma com suas próprias regras sintáticas e semânticas. Algumas são mais adequadas para tarefas específicas do que outras, e a escolha da linguagem geralmente depende das necessidades do projeto, preferências pessoais e recursos disponíveis. Exemplos de linguagens de programação populares incluem Python, Java, C++, JavaScript</p>
+        <h2><li>Java</li></h2>
+        <h3><li>Introdução</li></h3>
+        <p>A linguagem de programação é um método padronizado, formado por um conjunto de regras sintáticas e semânticas, de implementação de um código fonte - que pode ser compilado e transformado em um programa de computador, ou usado como script interpretado - que informará instruções de processamento ao computador</p>
+        <h5>Regras Sintáticas </h5>
+        <p>Na sintática a gramatica é escrita de forma errada mais você entende oque algo escrito quer dizer.</p>
+        <img src="Untitled.jpeg" style="width: 350px; height: 250px;">
+        <h5>Regras Semânticas </h5>
+        <p>Já na Semântica a gramatica é correta mais oque está escrito nao faz sentido</p>
+        <img src="Untitled (1).jpeg" style="width: 350px; height: 250px;">
+        <h4>Compiladores e Interpretadores</h4>
+        <p>O compilador gera um arquivo executável que pode ser executado diretamente no sistema operacional. Por outro lado, um interpretador traduz o código fonte linha por linha durante a execução.</p>
+        <img src="Untitled (2).jpeg" style="width: 400px; height: 300px;">
+        <h4>Ambiente de desenvolvimento</h4>
+        <h5>intelliJ IDEA Community Edition 2023.3.3</h5>
+        <p> é um ambiente de desenvolvimento integrado (IDE) usado principalmente para o desenvolvimento de software em linguagens como Java, Kotlin, Groovy, Scala, e outras.</p>
+        <img src="IntelliJ_IDEA_logo_01.png" style="width: 350px; height: 250;">
+        <h3><li>Variavel</li></h3>
+        <p><h5>Uma variável é um conceito fundamental em programação e se refere a um local na memória do computador que é reservado para armazenar um valor específico. Esses valores podem ser números, texto, objetos, ou qualquer outro tipo de dado que o programa esteja manipulando.</h5></p>
+        <p>Conforme ilustração a seguir, podemos imaginar as variáveis como vagas dentro de um estacionamento. Cada vaga possui uma numeração para facilitar sua localização, assim como utilizamos um nome ao declarar uma variável, para facilitar o seu uso no programa. Alguns estacionamentos podem ter vagas de tamanhos diferentes para comporta diferentes tipos de veículos. O mesmo ocorre com as variáveis que podem armazenar diferentes tipos de dados..</p>
+        <img src="Untitled.png" style="width: 350px; height: 250px;">
+        <h4>Variáveis primitivas</h4>
+        <img src="Untitled (1).png" style="width: 350px; height: 250px;">
+        <h4>Vantagem do usos de variáveis em programas de computador:</h4>
+        <h5>O código torna-se flexível.</h5>
+        <img src="Captura de tela 2024-06-14 135000.png" style="width: 400px; height: 350px;">
+        <h4>Declaração de variáveis:</h4>
+        <h5>Você precisa digitar o tipo de variável (palavra reservada) e um nome para esta variável.</h5>
+        <img src="Untitled (2).png" style="width: 350px; height: 250px;">
+        <p>Ao declarar uma variável em um código ela passa a existir não sendo necessário declará-la novamente.</p>
+        <h4>OPERADORES</h4>
+        <img src="Captura de tela 2024-06-14 135817.png" style="width: 500px; height: 450px;">
+        <h3><li>Estruturas de decisão</li></h3>
+        <h4>if/else</h4>
+        <h5>if:</h5>
+        <img src="Captura de tela 2024-06-14 142648.png" style="width: 450px; height: 330px;">
+        <h5>if/else:</h5>
+        <img src="Captura de tela 2024-06-14 143139.png" style="width: 450px; height: 330px;">
+        <h4>Switch</h4>
+        <p> é uma estrutura de controle de fluxo que permite selecionar um dos muitos blocos de código a serem executados, dependendo do valor de uma expressão. Essa estrutura é geralmente usada quando há múltiplas condições a serem avaliadas e diferentes ações a serem tomadas com base nessas condições.</p>
+        <p>A estrutura do switch permite que haja um teste lógico para cada case em sua estrutura, funcionando como um conjunto de ifs aninhados.</p>
+        <img src="Captura de tela 2024-06-14 144759.png" style="width: 450px; height: 330px;">
+        <h3>Uma estrutura do Switch</h3>
+        <img src="Captura de tela 2024-06-14 145720.png" style="width: 400px; height: 440px;">
+        <p>confira no meu GitHub exercicios com este conteúdo aplicado, clicando abaixo</p>
+        <a href="https://github.com/luizgustavo200555/lista1/tree/main/lista2" target="_blank">
+            <img src="pngimg.com - github_PNG23.png" style="width: 250px; height: 130px;">
+        </a>
+        <h2><li>Estruturas de repetição</li></h2>
+        <h4>While</h4>
+        <p>A estrutura de repetição while permite a criação de um loop que executa um bloco de instruções repetidas vezes enquanto uma condição for verdadeira</p>
+        <img src="Captura de tela 2024-06-14 160529.png" style="width: 250px; height: 130px;">
+        <h4>do / while</h4>
+        <p>Semelhante ao while o do/while obriga que o bloco de instruções seja executado ao menos uma vez:</p>
+        <img src="Captura de tela 2024-06-14 160918.png" style="width: 250px; height: 130px;">
+        <h4>for</h4>
+        <p>Possui a mesma ideia que o while porém com uma estrutura fixa que obriga a criação de uma variável de controle</p>
+        <h2><li>Vetores</li></h2>
+        <p>Vetores (array) são variáveis que reservam regiões da memória que podem alocar diversos valores do mesmo tipo em sequencia. Para acessar estes valores utiliza-se o nome dado ao vetor + um índice numérico.</p>
+        <img src="Captura de tela 2024-06-14 163140.png" style="width: 350px; height: 120px;">
+        <h4>As principais funções de um vetor incluem:</h4>
+        <h5><p>Armazenamento de Dados/ Acesso aos Elementos/ Iteração/ Manipulação de Dados/ Ordenação/ Busca/ Redimensionamento;</p></h5>
+        <h2><li>Matrizes</li></h2>
+        <p>Uma matriz é uma estrutura de dados bidimensional que armazena elementos em linhas e colunas. Ela é uma extensão natural dos vetores unidimensionais, permitindo armazenar dados em uma grade ou tabela.</p>
+        <img src="Captura de tela 2024-06-14 163207.png" style="width: 350px; height: 120px;">
+        <h4>As principais funções de uma matriz incluem</h4>
+        <h5><p>Armazenamento de Dados/ Acesso aos Elementos/ Iteração/ Manipulação de Dados/ Busca e Ordenação;</p></h5>
+        <p>Confira no meu Github clicando abaixo, exercicios trabalhados com esse conteúdo</p>
+        <a href="https://github.com/luizgustavo200555/lista1/tree/main/lista3" target="_blank">
+            <img src="pngimg.com - github_PNG23.png" style="width: 250px; height: 130px;">
+
+    
+    
+    
+    </div>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div id="CienciadeDados-title" style="display: none;">Ciência de Dados</div>
+    <div id="CienciadeDados-description" style="display: none;">
+        <h1>O QUE É?</h1>
+        <p>É uma disciplina interdisciplinar que combina conhecimentos de estatística, programação, matemática e domínio do assunto para extrair insights e conhecimentos úteis a partir de grandes conjuntos de dados. Isso é feito através de várias etapas, incluindo a coleta, limpeza e organização dos dados, análise exploratória, modelagem estatística e machine learning, e visualização de dados para comunicar resultados de forma clara e eficaz.</p>
+        <h1>Google Colab</h1>
+        <p>Plataforma de código aberto baseada na nuvem que permite escrever e executar códigos em Python diretamente no navegador, sem a necessidade de configurar um ambiente de desenvolvimento local.</p>
+        <a href="https://colab.research.google.com/drive/1vCL9RFnfetDxbs55bFyhco0bxDmjZ-wD?usp=sharing" target="_blank">
+            <img src="colab_favicon_256px.png" style="width: 250px; height: 200px;">
+        </a>
+        <p><h3>lique na imagem acima;</h3></p>
+    
+    </div>
+    
+    
+   <script src="script.js"></script> 
+   

@@ -1,0 +1,174 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro de Contatos</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Registro de Contatos</h1>
+        <form id="myForm">
+            <label for="nameInput">Nome:</label>
+            <input type="text" id="nameInput" required><br>
+            <label for="emailInput">E-mail:</label>
+            <input type="email" id="emailInput" required><br>
+            <label for="phoneInput">Telefone:</label>
+            <input type="tel" id="phoneInput" required><br>
+            <button type="button" onclick="addEntry()">Adicionar</button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- As linhas da tabela serão adicionadas aqui dinamicamente -->
+            </tbody>
+        </table>
+
+        <!-- Popup de Edição -->
+        <div id="editPopup" style="display: none;">
+            <h2>Editar Contato</h2>
+            <input type="hidden" id="editIdInput">
+            <label for="editedNameInput">Nome:</label>
+            <input type="text" id="editedNameInput" required><br>
+            <label for="editedEmailInput">E-mail:</label>
+            <input type="email" id="editedEmailInput" required><br>
+            <label for="editedPhoneInput">Telefone:</label>
+            <input type="tel" id="editedPhoneInput" required><br>
+            <button type="button" onclick="saveEdit()">Salvar</button>
+            <button type="button" onclick="closeEditPopup()">Cancelar</button>
+        </div>
+
+        <script>
+            let idCounter = 0; // Inicializa o contador de IDs
+
+            // Carrega os dados da tabela do armazenamento local quando a página carrega
+            window.onload = function() {
+                const data = JSON.parse(localStorage.getItem("tableData")) || [];
+                data.forEach(entry => addRow(entry));
+                idCounter = data.length > 0 ? data[data.length - 1].id : 0;
+            }
+
+            function addEntry() {
+                // Incrementa o contador de IDs
+                idCounter++;
+
+                // Obtém os valores do formulário
+                const name = document.getElementById("nameInput").value;
+                const email = document.getElementById("emailInput").value;
+                const phone = document.getElementById("phoneInput").value;
+
+                // Adiciona a entrada à tabela e salva no armazenamento local
+                const entry = { id: idCounter, name, email, phone };
+                addRow(entry);
+                saveToLocalStorage();
+
+                // Limpa os campos do formulário
+                document.getElementById("myForm").reset();
+            }
+
+            function addRow(entry) {
+                // Cria uma nova linha para a tabela
+                const newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                    <td>${entry.id}</td>
+                    <td>${entry.name}</td>
+                    <td>${entry.email}</td>
+                    <td>${entry.phone}</td>
+                    <td><button onclick="deleteEntry(${entry.id})">Deletar</button></td>
+                    <td><button onclick="openEditPopup(${entry.id})">Editar</button></td>
+                `;
+
+                // Adiciona a nova linha ao corpo da tabela
+                document.getElementById("tableBody").appendChild(newRow);
+            }
+
+            function deleteEntry(id) {
+                // Encontra o índice da linha
+                const rowIndex = [...document.querySelectorAll("#tableBody tr")].findIndex(row => row.cells[0].innerText === String(id));
+
+                // Remove a linha da tabela
+                document.getElementById("tableBody").deleteRow(rowIndex);
+
+                // Atualiza o contador de IDs
+                idCounter--;
+
+                // Renomeia os IDs após a exclusão
+                renumberIDs();
+
+                // Salva os dados atualizados no armazenamento local
+                saveToLocalStorage();
+            }
+
+            function renumberIDs() {
+                const rows = document.querySelectorAll("#tableBody tr");
+                rows.forEach((row, index) => {
+                    row.cells[0].innerText = index + 1;
+                });
+            }
+
+            function openEditPopup(id) {
+                // Obtém os dados da pessoa da tabela
+                const row = [...document.querySelectorAll("#tableBody tr")].find(row => row.cells[0].innerText === String(id));
+                const name = row.cells[1].innerText;
+                const email = row.cells[2].innerText;
+                const phone = row.cells[3].innerText;
+
+                // Preenche o formulário de edição com os dados da pessoa
+                document.getElementById("editIdInput").value = id;
+                document.getElementById("editedNameInput").value = name;
+                document.getElementById("editedEmailInput").value = email;
+                document.getElementById("editedPhoneInput").value = phone;
+
+                // Exibe o popup de edição
+                document.getElementById("editPopup").style.display = "block";
+            }
+
+            function closeEditPopup() {
+                // Oculta o popup de edição
+                document.getElementById("editPopup").style.display = "none";
+            }
+
+            function saveEdit() {
+                // Obtém os valores do formulário de edição
+                const id = document.getElementById("editIdInput").value;
+                const name = document.getElementById("editedNameInput").value;
+                const email = document.getElementById("editedEmailInput").value;
+                const phone = document.getElementById("editedPhoneInput").value;
+
+                // Atualiza os dados na tabela
+                const row = [...document.querySelectorAll("#tableBody tr")].find(row => row.cells[0].innerText === String(id));
+                row.cells[1].innerText = name;
+                row.cells[2].innerText = email;
+                row.cells[3].innerText = phone;
+
+                // Oculta o popup de edição
+                document.getElementById("editPopup").style.display = "none";
+
+                // Salva os dados atualizados no armazenamento local
+                saveToLocalStorage();
+            }
+
+            function saveToLocalStorage() {
+                const tableData = [];
+                const rows = document.querySelectorAll("#tableBody tr");
+                rows.forEach(row => {
+                    const id = row.cells[0].innerText;
+                    const name = row.cells[1].innerText;
+                    const email = row.cells[2].innerText;
+                    const phone = row.cells[3].innerText;
+                    tableData.push({ id, name, email, phone });
+                });
+                localStorage.setItem("tableData", JSON.stringify(tableData));
+            }
+        </script>
+    </body>
+    </html>
